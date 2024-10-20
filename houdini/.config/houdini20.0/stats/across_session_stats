@@ -1,0 +1,10 @@
+ÿÿÿÿ{
+	"activated_apprentice":{
+		"type":"bool",
+		"value":true
+	},
+	"colors_scheme":{
+		"type":"string",
+		"value":"AXSC Dark v1.0"
+	}
+}

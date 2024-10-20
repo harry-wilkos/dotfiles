@@ -1,0 +1,76 @@
+
+[window]
+
+opacity = 0.85
+blur = true
+startup_mode = "Maximized"
+
+[font]
+
+size = 11
+# normal = { family = "FiraCode Nerd Font" }
+# bold = { family = "FiraCode Nerd Font", style = "Bold" }
+# italic = { family = "FiraCode Nerd Font", style = "Italic" }
+# bold_italic = { family = "FiraCode Nerd Font", style = "Bold Italic" }
+
+[selection]
+
+save_to_clipboard = true
+
+[mouse]
+
+hide_when_typing = true
+
+
+[keyboard]
+
+bindings = [
+  { key = "C", mods = "Control|Shift", mode = "Vi|~Search", action = "ToggleViMode" },
+  { key = "C", mods = "Control|Shift", mode = "Search", action = "SearchCancel" },
+
+  { key = "C", mods = "Control", action = "Copy" },
+  { key = "C", mods = "Control", mode = "Vi|~Search", action = "ClearSelection" },
+
+  { key = "V", mods = "Control|Shift", mode = "Vi|~Search", action = "ToggleBlockSelection" },
+
+  { key = "V", mods = "Control", mode = "~Vi", action = "Paste" },
+  { key = "V", mods = "Control", mode = "Vi|Search", action = "Paste" },
+
+  { key = "Escape", mods = "Alt", mode = "~Search", action = "ToggleViMode" },
+  { key = "ArrowRight", mods = "Control", mode = "Vi|~Search", action = "WordRightEnd" },
+  { key = "ArrowLeft", mods = "Control", mode = "Vi|~Search", action = "WordLeftEnd" },
+  { key = "Back", mods = "Control", chars = "\u0017" },
+  # Ctrl+E to move to the end of the line
+  { key = "E", mods = "Control", chars = "\u001b[F" },
+
+  # Ctrl+B to move to the beginning of the line
+  { key = "B", mods = "Control", chars = "\u001b[H" },
+
+]
+
+# Default colors
+[colors.primary]
+background = '#24283b'
+foreground = '#a9b1d6'
+
+# Normal colors
+[colors.normal]
+black   = '#32344a'
+red     = '#f7768e'
+green   = '#9ece6a'
+yellow  = '#e0af68'
+blue    = '#7aa2f7'
+magenta = '#ad8ee6'
+cyan    = '#449dab'
+white   = '#9699a8'
+
+# Bright colors
+[colors.bright]
+black   = '#444b6a'
+red     = '#ff7a93'
+green   = '#b9f27c'
+yellow  = '#ff9e64'
+blue    = '#7da6ff'
+magenta = '#bb9af7'
+cyan    = '#0db9d7'
+white   = '#acb0d0'

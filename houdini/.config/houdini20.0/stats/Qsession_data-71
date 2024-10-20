@@ -1,0 +1,41 @@
+{
+	"stats":{
+		"start_time":1729366287,
+		"end_time":1729366310,
+		"idle_time":1,
+		"log_id":"0x758A92C2-0x0C875D0F-0x67140911-0x000001C6",
+		"persistent_stats":{
+			"activated_apprentice":true,
+			"colors_scheme":"AXSC Dark v1.0"
+		},
+		"flags":[
+		],
+		"counts":{
+		},
+		"logs":{
+		},
+		"sums_and_counts":{
+		},
+		"strings":{
+		},
+		"checksum":"0896ca44d477468908beaf97074498bd"
+	},
+	"machine_config":{
+		"houdini_major_version":"20",
+		"houdini_minor_version":"0",
+		"houdini_build_version":"653",
+		"application_name":"happrentice",
+		"license_category":"Apprentice",
+		"platform":"linux-x86_64-gcc11.2",
+		"operating_system":"Fedora release 40 (Forty)",
+		"number_of_processors":16,
+		"system_memory":"15.36 GB",
+		"graphics_card":"Mesa Intel(R) UHD Graphics (TGL GT1)",
+		"graphics_card_version":"4.6 (Compatibility Profile) Mesa 24.1.7",
+		"mac_address_hash":"43e81ad4fa0420d4fb893187d28ab550",
+		"user_config_version":20140523,
+		"system_resolution":"1920x1080",
+		"cpu_info":"11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz",
+		"config_hash":"8bcf326efe0155103e08b05f50817035"
+	}
+}
