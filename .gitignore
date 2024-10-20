@@ -17,5 +17,3 @@ dist/
 Thumbs.db
 .coverage
 htmlcov/
-.git/
-.gitignore

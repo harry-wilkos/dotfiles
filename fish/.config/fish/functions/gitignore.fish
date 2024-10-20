@@ -1,12 +1,10 @@
-function create_gitignore
+function gitignore
     set gitignore_file .gitignore
 
     if test -f $gitignore_file
         echo "$gitignore_file already exists."
         return
     end
-
-    echo "Creating $gitignore_file..."
 
     echo "__pycache__/
     *.pyc
