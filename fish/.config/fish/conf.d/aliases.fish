@@ -15,6 +15,8 @@ alias tree="eza -a --git-ignore --icons --tree -I __pycache__"
 alias cat="glow"
 alias ga="git add ."
 alias gs="git status"
+alias gps="git push"
+alias gpl="git pull"
 
 
 for n in (seq 4 2 10)
