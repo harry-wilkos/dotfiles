@@ -70,9 +70,10 @@ function update
         command rm -rf ~/.cache/*
     end
 
+
     # Clear other common cache directories
-    if test -d ~/.local/share/Trash/files
-        command rm -rf ~/.local/share/Trash/files/*
+    if test -d ~/.local/share/Trash
+        command rm -rf ~/.local/share/Trash/*
     end
 
     # Cleaning up temporary files in /tmp
