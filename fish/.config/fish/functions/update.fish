@@ -21,7 +21,7 @@ function update
     set repo_dir (realpath $repo_dir)
 
     # System Package Updates
-    command dnf upgrade --refresh --best --allowerasing
+    command dnf upgrade --refresh --best --allowerasing -y
     command dnf update -v
     command flatpak update -y
 
