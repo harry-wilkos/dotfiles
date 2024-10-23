@@ -7,24 +7,24 @@ function gitignore
     end
 
     echo "__pycache__/
-    *.pyc
-    *.pyo
-    tmp/
-    .env
-    env/
-    venv/
-    .ipynb_checkpoints/
-    .pytest_cache/
-    *.log
-    build/
-    dist/
-    .idea/
-    .vscode/
-    *.sublime-workspace
-    .DS_Store
-    Thumbs.db
-    .coverage
-    htmlcov/" >$gitignore_file
+*.pyc
+*.pyo
+tmp/
+.env
+env/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+*.log
+build/
+dist/
+.idea/
+.vscode/
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+.coverage
+htmlcov/" >$gitignore_file
 
     echo "$gitignore_file created successfully."
 end
