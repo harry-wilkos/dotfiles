@@ -30,4 +30,3 @@ fish_add_path /opt/hfs20.0.653/bin
 set fish_cursor_default block
 set fish_cursor_insert line blink
 set fish_cursor_replace_one underscore
-

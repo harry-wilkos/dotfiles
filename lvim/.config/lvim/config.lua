@@ -1,10 +1,6 @@
 -- PLUGINS --
 lvim.plugins = {
      {
-          'IogaMaster/neocord',
-          event = "VeryLazy",
-     },
-     {
           'kosayoda/nvim-lightbulb',
           config = function()
                require("nvim-lightbulb").setup({
@@ -274,6 +270,13 @@ vim.keymap.set('n', '<A-Right>', '<C-w>l', { noremap = true, silent = true }) --
 vim.keymap.set('n', '<C-Esc>', ':WakaTimeToday<CR>', { noremap = true, silent = true })
 
 -- Manual LSP
+if not vim.env.PYTHONPATH then
+    vim.env.PYTHONPATH = '/opt/hfs20.0.653/houdini/python3.10libs/'
+else
+    vim.env.PYTHONPATH = vim.env.PYTHONPATH .. ':/opt/hfs20.0.653/houdini/python3.10libs/'
+end
+
+
 local lspconfig = require("lspconfig")
 local formatters = require("lvim.lsp.null-ls.formatters")
 local linters = require("lvim.lsp.null-ls.linters")
