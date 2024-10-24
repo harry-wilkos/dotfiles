@@ -9,7 +9,7 @@
     <memberTool name="Recook"/>
   </toolshelf>
 
-  <tool name="Recook" label="Recook" icon="PLASMA_App">
+  <tool name="Recook" label="Recook" icon="recook">
     <toolMenuContext name="network">
       <contextNetType>OBJ</contextNetType>
       <contextNetType>SOP</contextNetType>
@@ -26,9 +26,5 @@
     <toolSubmenu>HOP</toolSubmenu>
     <script scriptType="python"><![CDATA[from hop.shelf_tools import recook
 recook()]]></script>
-    <keywordList>
-      <keyword>refresh</keyword>
-      <keyword>recook</keyword>
-    </keywordList>
   </tool>
 </shelfDocument>

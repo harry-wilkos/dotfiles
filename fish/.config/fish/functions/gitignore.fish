@@ -24,6 +24,8 @@ dist/
 .DS_Store
 Thumbs.db
 .coverage
+cache/
+*.cache
 htmlcov/" >$gitignore_file
 
     echo "$gitignore_file created successfully."

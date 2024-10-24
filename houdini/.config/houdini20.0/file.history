@@ -4,7 +4,6 @@ $HH
 }
 OTL
 {
-/opt/hfs20.0/houdini/otls/OPlibAutoRigs.hda
 /opt/hfs20.0/houdini/otls/OPlibLop.hda
 /opt/hfs20.0/houdini/otls/OPlibTexturePaint.hda
 /opt/hfs20.0/houdini/otls/OPlibObject.hda
@@ -16,4 +15,5 @@ OTL
 /opt/hfs20.0/packages/apex/otls/OPlibAPEX.hda
 /opt/hfs20.0/packages/kinefx/otls/OPlibKineFX.hda
 /opt/sidefx_packages/SideFXLabs20.0/otls/SideFX_Labs.hda
+/home/Harry/.config/houdini20.0/otls/lop_Shot.1.0.hdanc
 }

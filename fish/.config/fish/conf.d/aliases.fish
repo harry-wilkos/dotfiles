@@ -1,4 +1,4 @@
-alias ls='eza --git-ignore --icons -I __pycache__'
+alias ls='eza --git-ignore --icons'
 alias la='eza -a --icons'
 alias vim='sh  ~/.local/bin/lvim'
 alias lc='eza -alh -snew --icons'
@@ -11,7 +11,7 @@ alias local="hostname -I"
 alias py="python"
 alias drives="df -h"
 alias ..="cd .."
-alias tree="eza -a --git-ignore --icons --tree -I __pycache__"
+alias tree="eza -a --git-ignore --icons --tree"
 alias cat="glow"
 alias ga="git add ."
 alias gs="git status"
