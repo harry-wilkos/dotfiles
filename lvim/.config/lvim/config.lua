@@ -6,6 +6,8 @@ lvim.plugins = {
           event = "VeryLazy",
           config = function()
                require("nvim-surround").setup(
+
+               )
           end
 
      },
