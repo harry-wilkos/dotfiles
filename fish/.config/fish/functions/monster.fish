@@ -1,15 +1,25 @@
 function monster
-    set MOUNT_POINT ~/Monster
+    set MOUNT_POINT $HOME/Monster
 
     if test "$argv[1]" = -u
         # Unmounting logic
         if mountpoint -q $MOUNT_POINT
-            # If the current directory is inside the mount point, move out
-            if string match -q $PWD "$MOUNT_POINT/*"
-                cd ~
+            # Get the current working directory
+            set CURRENT_DIR (pwd)
+
+            # Check if the current directory is within the mount point
+            if string match -q "$MOUNT_POINT/*" "$CURRENT_DIR" || test "$CURRENT_DIR" = "$MOUNT_POINT"
+                cd $HOME
+                sleep 0.5
             end
+
+            # Attempt to unmount
             umount $MOUNT_POINT
-            echo "Monster unmounted."
+            if test $status -eq 0
+                echo "Monster unmounted."
+            else
+                echo "Failed to unmount Monster."
+            end
         else
             echo "Monster is not mounted."
         end
@@ -17,7 +27,6 @@ function monster
         # Mounting logic
         if not mountpoint -q $MOUNT_POINT
             mount $MOUNT_POINT
-            # Check if the mount was successful
             if test $status -eq 0
                 echo "Monster mounted."
                 cd $MOUNT_POINT
@@ -30,3 +39,4 @@ function monster
         end
     end
 end
+

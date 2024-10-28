@@ -33,6 +33,7 @@ lvim.plugins = {
                })
           end
      },
+
      {
           'nvim-telescope/telescope-ui-select.nvim'
      },
@@ -112,21 +113,27 @@ lvim.plugins = {
                { "q",          "<cmd>Trouble cascade close<cr>" },
           },
      },
+
      {
           "CRAG666/code_runner.nvim",
           config = true
      },
+
      {
           "mrjones2014/nvim-ts-rainbow",
      },
+
      {
           "ellisonleao/glow.nvim",
           config = true,
           cmd = "Glow"
      },
+
      {
           'wakatime/vim-wakatime',
-          lazy = false
+          lazy = false,
+          event = "VeryLazy",
+
      }
 }
 
@@ -137,7 +144,7 @@ require('code_runner').setup {
      focuse = false,
      term = {
           position = "vert",
-          size = 60
+          size = 45
      },
      filetype = {
           javascript = "node",

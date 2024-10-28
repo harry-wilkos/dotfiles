@@ -1,3 +1,6 @@
+[shell]
+program = "/usr/bin/fish"
+args = ["--login"]
 
 [window]
 
