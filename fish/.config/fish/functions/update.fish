@@ -20,6 +20,31 @@ function update
     # Expand the path if it's a relative path
     set repo_dir (realpath $repo_dir)
 
+    # Cleanup and Cache Clearing
+    command dnf clean all -v
+    command flatpak uninstall --unused -y
+    command flatpak repair
+
+    # Cleaning up User Cache Directories
+    if test -d ~/.cache
+        command rm -rf ~/.cache/*
+    end
+
+
+    # Clear other common cache directories
+    if test -d ~/.local/share/Trash
+        command rm -rf ~/.local/share/Trash/*
+    end
+
+    # Cleaning up temporary files in /tmp
+    command rm -rf /tmp/*
+
+    # Vacuuming Journal Logs
+    command journalctl --vacuum-time=2weeks
+
+    # Remove systemd tmpfiles
+    command systemd-tmpfiles --clean
+
     # System Package Updates
     command dnf upgrade --refresh --best --allowerasing -y
     command dnf update -v
@@ -60,36 +85,6 @@ function update
         docker volume prune -f
     end
 
-    # Cleanup and Cache Clearing
-    command dnf clean all -v
-    command flatpak uninstall --unused -y
-    command flatpak repair
-
-    # Cleaning up User Cache Directories
-    if test -d ~/.cache
-        command rm -rf ~/.cache/*
-    end
-
-
-    # Clear other common cache directories
-    if test -d ~/.local/share/Trash
-        command rm -rf ~/.local/share/Trash/*
-    end
-
-    # Cleaning up temporary files in /tmp
-    command rm -rf /tmp/*
-
-    # Vacuuming Journal Logs
-    command journalctl --vacuum-time=2weeks
-
-    # Remove disabled snaps
-    set disabled_snaps (snap list --all | awk '/disabled/{print $1, $3}')
-    if test -n "$disabled_snaps"
-        command snap remove --purge $disabled_snaps
-    end
-
-    # Remove systemd tmpfiles
-    command systemd-tmpfiles --clean
 
     # Git Pull for Repositories
     if test -d "$repo_dir"
@@ -120,4 +115,3 @@ function update
         return 1
     end
 end
-
