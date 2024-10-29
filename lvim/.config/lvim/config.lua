@@ -25,11 +25,11 @@ lvim.plugins = {
           config = function()
                require("nvim-lightbulb").setup({
                     autocmd = { enabled = true },
-                    ignore = {
-                         clients = {
-                              "ruff",
-                         },
-                    },
+                    -- ignore = {
+                    --      clients = {
+                    --           "ruff",
+                    --      },
+                    -- },
                })
           end
      },
@@ -226,7 +226,7 @@ vim.keymap.set('n', '<C-S-z>', '<C-r>', { noremap = true, silent = true })      
 vim.keymap.set('n', '<C-a>', 'ggVG', { noremap = true, silent = true })               -- Select all
 vim.keymap.set('i', '<C-a>', '<Esc>ggVG<CR>a', { noremap = true, silent = true })     -- Select all in insert mode
 vim.api.nvim_set_keymap('v', '<C-a>', '<Esc>ggVG', { noremap = true, silent = true }) -- Select all in visual mode
-
+lvim.keys.normal_mode["/"]  = ":noh<CR>:/"
 -- Nvim Tree toggle
 vim.keymap.set("n", "<C-p>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 

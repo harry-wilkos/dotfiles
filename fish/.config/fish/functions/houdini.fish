@@ -1,11 +1,5 @@
-function start_houdini
-    # Start the sesinetd service
+function houdini
     sudo /opt/hfs20.0.653/houdini/sbin/sesinetd.startup start
-
-    # Run Houdini with any arguments passed to this function
-    houdini $argv
-
-    # Return to the original directory
-    cd $current_dir
+    /opt/hfs20.0.653/bin/houdini $argv
 end
 

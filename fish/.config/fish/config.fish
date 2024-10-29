@@ -26,7 +26,7 @@ fish_add_path ~/.local/bin
 fish_add_path ~/.spicetify
 fish_add_path ~/.atuin/bin
 fish_add_path /opt/hfs20.0.653/bin
-
+source /home/Harry/.cargo/env.fish
 # Cursor settings
 set fish_cursor_default block
 set fish_cursor_insert line blink
