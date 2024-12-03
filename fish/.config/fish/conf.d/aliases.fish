@@ -14,10 +14,13 @@ alias ..="cd .."
 alias tree="eza -a --git-ignore --icons --tree"
 alias cat="glow"
 alias ga="git add ."
-alias gs="git status"
+alias gs="git fetch && git status"
 alias gps="git push"
 alias gpl="git pull"
-
+alias kodi="gpu kodi"
+alias win="qdbus org.kde.KWin /KWin org.kde.KWin.queryWindowInfo"
+alias clip="xsel -b"
+alias gl="git ls-files | xargs wc -l"
 
 for n in (seq 4 2 10)
     alias (string repeat -n $n ".")="cd_dots (string repeat -n $n ".")"

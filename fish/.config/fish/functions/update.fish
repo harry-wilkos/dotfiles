@@ -32,9 +32,7 @@ function update
 
 
     # Clear other common cache directories
-    if test -d ~/.local/share/Trash
-        command rm -rf ~/.local/share/Trash/*
-    end
+    yes | trash-empty --all-users -v
 
     # Cleaning up temporary files in /tmp
     command rm -rf /tmp/*
@@ -46,8 +44,8 @@ function update
     command systemd-tmpfiles --clean
 
     # System Package Updates
-    command dnf upgrade --refresh --best --allowerasing -y
-    command dnf update -v
+    command dnf upgrade --refresh --best -y
+    command dnf update-minimal -v
     command flatpak update -y
 
     # Docker Updates
@@ -114,4 +112,16 @@ function update
         echo "The specified directory does not exist."
         return 1
     end
+
+    # Rebuild force blur
+    cd "$repo_dir/kwin-effects-forceblur/build"
+    command rm -r *
+    command cmake ../ -DCMAKE_INSTALL_PREFIX=/usr
+    command make
+    command make install
+
+    # Rebuild better discord
+    "$repo_dir/BetterDiscord"
+    command pnpm build
+    command pnpm inject
 end

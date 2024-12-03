@@ -7,6 +7,8 @@
 
   <toolshelf name="HOP" label="HOP">
     <memberTool name="Recook"/>
+    <memberTool name="import_alembic_cam"/>
+    <memberTool name="refresh_modules"/>
   </toolshelf>
 
   <tool name="Recook" label="Recook" icon="recook">
@@ -26,5 +28,46 @@
     <toolSubmenu>HOP</toolSubmenu>
     <script scriptType="python"><![CDATA[from hop.shelf_tools import recook
 recook()]]></script>
+  </tool>
+
+  <tool name="import_alembic_cam" label="Alembic Camera" icon="alembic_camera_import">
+    <toolMenuContext name="viewer">
+      <contextNetType>OBJ</contextNetType>
+    </toolMenuContext>
+    <toolMenuContext name="network">
+      <contextNetType>OBJ</contextNetType>
+    </toolMenuContext>
+    <toolSubmenu>HOP</toolSubmenu>
+    <script scriptType="python"><![CDATA[from hop.shelf_tools import import_alembic_cam
+import_alembic_cam(kwargs)]]></script>
+  </tool>
+
+  <tool name="refresh_modules" label="Refresh Modules" icon="refresh_modules">
+    <toolMenuContext name="viewer">
+      <contextNetType>OBJ</contextNetType>
+      <contextNetType>SOP</contextNetType>
+      <contextNetType>DOP</contextNetType>
+      <contextNetType>LOP</contextNetType>
+    </toolMenuContext>
+    <toolMenuContext name="cop_viewer">
+      <contextNetType>COP2</contextNetType>
+    </toolMenuContext>
+    <toolMenuContext name="network">
+      <contextNetType>OBJ</contextNetType>
+      <contextNetType>SOP</contextNetType>
+      <contextNetType>CHOP</contextNetType>
+      <contextNetType>ROP</contextNetType>
+      <contextNetType>SHOP</contextNetType>
+      <contextNetType>COP2</contextNetType>
+      <contextNetType>VOP</contextNetType>
+      <contextNetType>VOPNET</contextNetType>
+      <contextNetType>DOP</contextNetType>
+      <contextNetType>TOP</contextNetType>
+      <contextNetType>LOP</contextNetType>
+    </toolMenuContext>
+    <toolSubmenu>HOP</toolSubmenu>
+    <script scriptType="python"><![CDATA[from hop.util import refresh_modules
+import os
+refresh_modules(os.environ["HH"])]]></script>
   </tool>
 </shelfDocument>

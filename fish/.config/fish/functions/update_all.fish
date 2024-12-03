@@ -1,8 +1,12 @@
 function update_all
+    sudo update ~/.repos
     brew cleanup -v
+    flatpak uninstall --unused -y
+    flatpak repair
     brew update -v
     brew upgrade -v
-    sudo update ~/.repos
+    flatpak update -y
+    spicetify backup apply
     echo ==============================
     df -h
     echo ==============================

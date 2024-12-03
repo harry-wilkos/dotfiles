@@ -1,0 +1,423 @@
+// Magic: 647d46ae
+// Automatically generated PSI dialog (PSI version 20.0.653)
+// Tue Oct 29 22:37:26 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+targettopnetwork.gad = NULL { }
+
+sepparm3.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+frame_range.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+frame_range.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   frame_range.label = PARM_LABEL("Frame Range", "frame_range") WIDTH(1.5);
+   PARM(integer, 3, "frame_range", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(frame_range.label)
+	HSTRETCH;
+
+    {  }
+}
+
+simulated.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("simulated", "simulated") toggle VALUE(simulated.val);
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+res.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+res.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   res.label = PARM_LABEL("Resolution", "res") WIDTH(1.5);
+   PARM(integer, 2, "res", none, none, "#1,#2")
+	RANGE(0,10)  LABELREF(res.label)
+	HSTRETCH;
+
+    {  }
+}
+
+resmenu.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+    {  }
+
+    resmenu.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+}
+}	// Template join.bot
+
+
+sepparm2___2.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.064700) }
+}
+
+cameras.parm =
+{
+    LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Cameras", "cameras") WIDTH(1.5);
+    { WIDTH(0.1) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center) VALUE(cameras.val)
+
+        cameras.field = PARM_FIELD (integer, "cameras")
+				VALUE(cameras.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(cameras.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(cameras.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(cameras.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+cameras.multilist = 
+{
+    LAYOUT(vertical) HSTRETCH MARGIN(0.05)
+}
+
+cameras.gad =
+{
+    LAYOUT(vertical) HSTRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+    SWITCHER tight
+    {
+	LAYOUT(overlap!)
+        VALUE(cameras.multilist_hide_buttons.val)
+	{
+	    LAYOUT(vertical) HSTRETCH
+	    cameras.parm;
+	    {LOOK(none) HEIGHT(0.02)}
+	}
+	{
+	}
+    }
+    cameras.multilist;
+}
+
+sepparm2.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+sort.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+sort.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    sort.label = PARM_LABEL_SIMPLE("Grid Grouping", "sort") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    sort.menu;
+
+    {  }
+
+    {  }
+}
+
+grid.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ grid.label = PARM_LABEL("Grid Size", "grid") ;
+ PARM(integer, 1, "grid", none, none) RANGE(0,10)
+	 LABELREF(grid.label) HSTRETCH;
+
+  {  }
+}
+
+font.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ font.label = PARM_LABEL("Font Size", "font") ;
+ PARM(float, 1, "font", none, none) RANGE(1,100)
+	 LABELREF(font.label) HSTRETCH;
+
+  {  }
+}
+}	// Template join.bot
+
+
+sepparm4.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+wedgecount.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ wedgecount.label = PARM_LABEL("Wedge Count", "wedgecount") WIDTH(1.5);
+ PARM(integer, 1, "wedgecount", none, none) RANGE(1,10)
+	 LABELREF(wedgecount.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+wedgeattributes.parm =
+{
+    LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Wedge Attributes", "wedgeattributes") WIDTH(1.5);
+    { WIDTH(0.1) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center) VALUE(wedgeattributes.val)
+
+        wedgeattributes.field = PARM_FIELD (integer, "wedgeattributes")
+				VALUE(wedgeattributes.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(wedgeattributes.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(wedgeattributes.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(wedgeattributes.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+wedgeattributes.multilist = 
+{
+    LAYOUT(vertical) HSTRETCH MARGIN(0.05)
+}
+
+wedgeattributes.gad =
+{
+    LAYOUT(vertical) HSTRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+    SWITCHER tight
+    {
+	LAYOUT(overlap!)
+        VALUE(wedgeattributes.multilist_hide_buttons.val)
+	{
+	    LAYOUT(vertical) HSTRETCH
+	    wedgeattributes.parm;
+	    {LOOK(none) HEIGHT(0.02)}
+	}
+	{
+	}
+    }
+    wedgeattributes.multilist;
+}
+
+seed.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ seed.label = PARM_LABEL("Wedge Seed", "seed") WIDTH(1.5);
+ PARM(integer, 1, "seed", none, none) RANGE(0,10000000)
+	 LABELREF(seed.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm5.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+output.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ output.label = PARM_LABEL("Output", "output") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "output") LABELREF(output.label)
+	VALUE(output.val) HSTRETCH;
+
+    output.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(output.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+sepparm6.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.064700) }
+}
+export.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+export.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("export", "Export")
+	push VALUE(export.val);
+
+    {  }
+}
+
+cancel.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("cancel", "Cancel")
+	push VALUE(cancel.val);
+
+    {  }
+}
+
+mplay.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("mplay", "Mplay Monitor") toggle VALUE(mplay.val);
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    targettopnetwork.gad; 
+    sepparm3.gad; 
+    frame_range.row.join; 
+    sepparm.gad; 
+    res.row.join; 
+    sepparm2___2.gad; 
+    cameras.gad; 
+    sepparm2.gad; 
+    sort.row.join; 
+    sepparm4.gad; 
+    wedgecount.gad; 
+    wedgeattributes.gad; 
+    seed.gad; 
+    sepparm5.gad; 
+    output.gad; 
+    sepparm6.gad; 
+    export.row.join; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

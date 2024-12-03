@@ -19,3 +19,6 @@ Thumbs.db
 htmlcov/
 cache/
 *.cache
+
+456.py
+backup/

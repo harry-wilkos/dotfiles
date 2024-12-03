@@ -1,0 +1,828 @@
+// Magic: 88532d1e
+// Automatically generated PSI dialog (PSI version 20.0.653)
+// Mon Dec  2 21:30:47 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+labelparm.gad =
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+    {
+        LAYOUT(horizontal) HSTRETCH
+        { WIDTH(1.5) }
+        { WIDTH(0.08) }
+        LABEL VALUE(labelparm.val[0]) HSTRETCH;
+    }
+    { HEIGHT(0.05) }
+}
+
+sepparm2.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+Asset_Library.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+Asset_Library.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    Asset_Library.menu;
+
+    {  }
+
+    {  }
+}
+
+Asset_Version.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    Asset_Version.menu;
+
+    {  }
+
+    {  }
+}
+
+Load.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("Load", "Load") toggle VALUE(Load.val);
+
+    {  }
+
+    {  }
+}
+
+Reload.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("Reload", "Reload")
+	push VALUE(Reload.val);
+
+    {  }
+}
+}	// Template join.bot
+
+
+Asset_Name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    Asset_Name.label = PARM_LABEL("Asset Name", "Asset_Name") WIDTH(1.5);
+    PARM_FIELD(string, "Asset_Name") VALUE(Asset_Name.val) 
+	LABELREF(Asset_Name.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+primpath.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    primpath.label = PARM_LABEL("Import Target", "primpath") WIDTH(1.5);
+    PARM_FIELD(string, "primpath") VALUE(primpath.val) 
+	LABELREF(primpath.label) HSTRETCH;
+
+    primpath.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    ACTION_ICONBUTTON "BUTTONS_reselect" VALUE(primpath.script_action)
+	HELP("Select a primitive in the Scene Viewer or Scene Graph Tree pane.\nCtrl-click to select using the primitive picker dialog.\nAlt-click to toggle movement of the display flag.")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+    { WIDTH(0.1) }
+}
+
+sepparm5.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.064700) }
+}
+
+t2.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   t2.label = PARM_LABEL("Translate", "t2") WIDTH(1.5);
+   PARM(float, 3, "t2", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(t2.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+r2.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   r2.label = PARM_LABEL("Rotate", "r2") WIDTH(1.5);
+   PARM(float, 3, "r2", none, none, "X,Y,Z")
+	RANGE(0,360)  LABELREF(r2.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+s2.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   s2.label = PARM_LABEL("Scale", "s2") WIDTH(1.5);
+   PARM(float, 3, "s2", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(s2.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+scale2.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ scale2.label = PARM_LABEL("Uniform Scale", "scale2") WIDTH(1.5);
+ PARM(float, 1, "scale2", none, none) RANGE(0,10)
+	 LABELREF(scale2.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+p.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   p.label = PARM_LABEL("Pivot Translate", "p") WIDTH(1.5);
+   PARM(float, 3, "p", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(p.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+pr.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   pr.label = PARM_LABEL("Pivot Rotate", "pr") WIDTH(1.5);
+   PARM(float, 3, "pr", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(pr.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+sepparm3.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+Subdivide_at_Render.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+Subdivide_at_Render.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("Subdivide_at_Render", "Subdivide at Render") toggle VALUE(Subdivide_at_Render.val);
+
+    {  }
+
+    {  }
+}
+
+Create_Proxies.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("Create_Proxies", "Create Proxies") toggle VALUE(Create_Proxies.val);
+
+    {  }
+
+    {  }
+}
+
+Center_Asset.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("Center_Asset", "Center Asset") toggle VALUE(Center_Asset.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm7.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.064700) }
+}
+
+Proxy_Colour.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+    { WIDTH(0.18) }
+
+    Proxy_Colour.label = PARM_LABEL("Proxy Colour", "Proxy_Colour") WIDTH(1.5);
+    PARM(float, 3, "Proxy_Colour", none, COLOR, "R,G,B") 
+	LABELREF(Proxy_Colour.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+Proxy_Reduction.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Proxy_Reduction.label = PARM_LABEL("Prim Reduction", "Proxy_Reduction") WIDTH(1.5);
+ PARM(float, 1, "Proxy_Reduction", none, none) RANGE(0,100)
+	 LABELREF(Proxy_Reduction.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+Proxy_Reduction_Volume.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Proxy_Reduction_Volume.label = PARM_LABEL("Volume Reduction", "Proxy_Reduction_Volume") WIDTH(1.5);
+ PARM(float, 1, "Proxy_Reduction_Volume", none, none) RANGE(0,100)
+	 LABELREF(Proxy_Reduction_Volume.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+Flush_Each_Frame.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("Flush_Each_Frame", "Flush Each Frame") toggle VALUE(Flush_Each_Frame.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+sepparm4.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.064700) }
+}
+Animated_Prims.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+Animated_Prims.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("Animated_Prims", "Animated Prims") toggle VALUE(Animated_Prims.val);
+
+    {  }
+
+    {  }
+}
+
+Animated_Materials.gad = ROW
+{
+    HSTRETCH
+    {  }
+
+    PARM_BUTTON("Animated_Materials", "Animated Materials") toggle VALUE(Animated_Materials.val);
+
+    { HSTRETCH }
+
+    {  }
+}
+}	// Template join.bot
+
+
+Frames.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   Frames.label = PARM_LABEL("Frames", "Frames") WIDTH(1.5);
+   PARM(integer, 3, "Frames", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(Frames.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+sepparm6.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.064700) }
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+Version_Up.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("Version_Up", "Version Up") toggle VALUE(Version_Up.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+execute.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+execute.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("execute", "Publish")
+	push VALUE(execute.val);
+
+    {  }
+}
+
+Farm_Cache.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("Farm_Cache", "Cache on Farm")
+	push VALUE(Farm_Cache.val);
+
+    {  }
+}
+}	// Template join.bot
+
+
+Project_Searches.parm =
+{
+    LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+
+    PARM_LABEL_SIMPLE("Project Searches", "Project_Searches") WIDTH(1.5);
+    { WIDTH(0.1) }
+
+    ROW
+    {
+	HSTRETCH(0.5) JUSTIFY(left, center) VALUE(Project_Searches.val)
+
+        Project_Searches.field = PARM_FIELD (integer, "Project_Searches")
+				VALUE(Project_Searches.val) HSTRETCH(0.5)
+				 PREF_WIDTH(0.5);
+
+        ROW
+        {
+	     LOOK(lightline) VMARGIN(1p)
+
+   	     INCREMENT_ICONBUTTON VALUE(Project_Searches.more.val)	
+	    	HELP("Add Another Instance") SIZE(0.2, 0.24);
+	     DECREMENT_ICONBUTTON VALUE(Project_Searches.less.val)	
+	        HELP("Remove Last Instance") SIZE(0.2, 0.24);
+
+	}
+
+	ACTION_BUTTON "Clear" VALUE(Project_Searches.clear.val);
+    }
+
+    { HSTRETCH }
+}
+
+Project_Searches.multilist = 
+{
+    LAYOUT(vertical) HSTRETCH MARGIN(0.05)
+}
+
+Project_Searches.gad =
+{
+    LAYOUT(vertical) HSTRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+    SWITCHER tight
+    {
+	LAYOUT(overlap!)
+        VALUE(Project_Searches.multilist_hide_buttons.val)
+	{
+	    LAYOUT(vertical) HSTRETCH
+	    Project_Searches.parm;
+	    {LOOK(none) HEIGHT(0.02)}
+	}
+	{
+	}
+    }
+    Project_Searches.multilist;
+}
+Create_Asset_Library.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+Create_Asset_Library.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("Create_Asset_Library", "Create Asset Library")
+	push VALUE(Create_Asset_Library.val);
+
+    {  }
+}
+
+Find_Asset_Library.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("Find_Asset_Library", "Find Asset Library")
+	push VALUE(Find_Asset_Library.val);
+
+    {  }
+}
+}	// Template join.bot
+
+
+Resolved_Location.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ Resolved_Location.label = PARM_LABEL("Resolved Location", "Resolved_Location") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "Resolved_Location") LABELREF(Resolved_Location.label)
+	VALUE(Resolved_Location.val) HSTRETCH;
+
+    Resolved_Location.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(Resolved_Location.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+Volume_Detected.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("Volume_Detected", "Volume Detected") toggle VALUE(Volume_Detected.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+Manual_Proxies.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("Manual_Proxies", "Manual Proxies Detected") toggle VALUE(Manual_Proxies.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+Animation_Detected.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("Animation_Detected", "Animation Detected") toggle VALUE(Animation_Detected.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+Create_Asset.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("Create_Asset", "Create Asset Detected") toggle VALUE(Create_Asset.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+Material_Detected.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("Material_Detected", "Material Detected") toggle VALUE(Material_Detected.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+Primitive_Detected.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("Primitive_Detected", "Primitive Detected ") toggle VALUE(Primitive_Detected.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+Error_Publish.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("Error_Publish", "Error Publish") toggle VALUE(Error_Publish.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+USD_Format.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    USD_Format.label = PARM_LABEL_SIMPLE("USD Format", "USD_Format") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    USD_Format.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+Resolved_Asset_Name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    Resolved_Asset_Name.label = PARM_LABEL("Resolved Asset Name", "Resolved_Asset_Name") WIDTH(1.5);
+    PARM_FIELD(string, "Resolved_Asset_Name") VALUE(Resolved_Asset_Name.val) 
+	LABELREF(Resolved_Asset_Name.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+Resolved_Version.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    Resolved_Version.label = PARM_LABEL("Resolved Version", "Resolved_Version") WIDTH(1.5);
+    PARM_FIELD(string, "Resolved_Version") VALUE(Resolved_Version.val) 
+	LABELREF(Resolved_Version.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+Resolved_Version_Up.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    Resolved_Version_Up.label = PARM_LABEL("Resolved Version Up", "Resolved_Version_Up") WIDTH(1.5);
+    PARM_FIELD(string, "Resolved_Version_Up") VALUE(Resolved_Version_Up.val) 
+	LABELREF(Resolved_Version_Up.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+Show_Back_End.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    PARM_BUTTON("Show_Back_End", "") toggle VALUE(Show_Back_End.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+Controls_1.gad = 
+GROUP collapsible "Back-end Controls" flat   
+{
+    VALUE(Controls_1.gad.val) LAYOUT(vertical) HSTRETCH
+	    Project_Searches.gad;		
+	    Create_Asset_Library.row.join;		
+	    Resolved_Location.gad;		
+	    Volume_Detected.gad;		
+	    Manual_Proxies.gad;		
+	    Animation_Detected.gad;		
+	    Create_Asset.gad;		
+	    Material_Detected.gad;		
+	    Primitive_Detected.gad;		
+	    Error_Publish.gad;		
+	    USD_Format.gad;		
+	    Resolved_Asset_Name.gad;		
+	    Resolved_Version.gad;		
+	    Resolved_Version_Up.gad;		
+} 
+
+xn__SaveControlls_sma.gad = 
+
+GROUP simple "Save Controlls" flat 
+{ 
+    VALUE(xn__SaveControlls_sma.gad.val) LAYOUT(vertical) HSTRETCH 
+	    Flush_Each_Frame.gad;		
+	    sepparm4.gad;		
+	    Animated_Prims.row.join;		
+	    Frames.gad;		
+	    sepparm6.gad;		
+	    sepparm.gad;		
+	    Version_Up.gad;		
+	    execute.row.join;		
+} 
+
+Create_Proxies_Folder.gad = 
+
+GROUP simple "Create Proxies" flat 
+{ 
+    VALUE(Create_Proxies_Folder.gad.val) LAYOUT(vertical) HSTRETCH 
+	    Proxy_Colour.gad;		
+	    Proxy_Reduction.gad;		
+	    Proxy_Reduction_Volume.gad;		
+} 
+
+Controls.gad = 
+
+{
+    VALUE(Controls.gad.val) LAYOUT(vertical) HSTRETCH SPACING(0.02)
+	    Subdivide_at_Render.row.join;		
+	    sepparm7.gad;		
+	    Create_Proxies_Folder.gad;		
+	    xn__SaveControlls_sma.gad;		
+} 
+
+Pivot_Transform.gad = 
+
+GROUP simple "Pivot Transform" flat 
+{ 
+    VALUE(Pivot_Transform.gad.val) LAYOUT(vertical) HSTRETCH 
+	    p.gad;		
+	    pr.gad;		
+} 
+
+Transform.gad = 
+GROUP collapsible "Import Transform" flat   
+{
+    VALUE(Transform.gad.val) LAYOUT(vertical) HSTRETCH
+	    t2.gad;		
+	    r2.gad;		
+	    s2.gad;		
+	    scale2.gad;		
+	    Pivot_Transform.gad;		
+} 
+
+# warning cpp warning: "GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":7 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    labelparm.gad; 
+    sepparm2.gad; 
+    Asset_Library.row.join; 
+    Asset_Name.gad; 
+    primpath.gad; 
+    sepparm5.gad; 
+    Transform.gad; 
+    sepparm3.gad; 
+    Controls.gad; 
+    Controls_1.gad; 
+    Show_Back_End.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

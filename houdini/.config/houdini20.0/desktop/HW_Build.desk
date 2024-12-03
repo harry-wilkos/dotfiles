@@ -28,7 +28,7 @@ root {
                 pane panetab5 -a 0 -l 10 -H /obj/ -T OBJ -m parmeditor
             }
             tabs 0 1 {
-                pane panetab11 -a 0 -l 10 -H /obj/ -T OBJ -m details
+                pane panetab4 -a 0 -l 10 -H /obj/ -T OBJ -m details
                 pane panetab12 -a 0 -l 0 -H /obj/ -T OBJ -m perfmon
             }
         }
@@ -36,7 +36,7 @@ root {
 }
 shelfdock -o 0 -l icon_and_text -G "0.50 0.50" add shelf_set_1 shelf_set_2
 treecontrol -a 0 -h 0 -i 1 -f 0 -O 0 -S 0 -D 0 -H 0 -V 0 -C 0 -I 0 -R 0 panetab14
-viewerstow -x open -b open -l open -m hide -c hide -d open ${DESKNAME}.panetab1.world
+viewerstow -x open -b stow -l stow -m hide -c hide -d open ${DESKNAME}.panetab1.world
 vieweroption -a 2 ${DESKNAME}.panetab1.world
 viewlayout -s 2 ${DESKNAME}.panetab1.world
 viewtype -t ortho_right ${DESKNAME}.panetab1.world.`vpname("${DESKNAME}.panetab1.world",4)`
@@ -44,7 +44,7 @@ viewtype -t ortho_front ${DESKNAME}.panetab1.world.`vpname("${DESKNAME}.panetab1
 viewtype -t ortho_top ${DESKNAME}.panetab1.world.`vpname("${DESKNAME}.panetab1.world",1)`
 viewtype -t perspective ${DESKNAME}.panetab1.world.`vpname("${DESKNAME}.panetab1.world",2)`
 iprview -t 0.1 -l 0 -e 1 -u 1  panetab3
-networkeditor -p '{\n	"obj:listmode":"0",\n	"sop:listmode":"0",\n	"palettecolors":"",\n	"showspareinputdep":"1",\n	"showchilddep":"1",\n	"showdep":"0",\n	"taskgraphsortdirection":"0",\n	"showtaskgraphperf":"0",\n	"taskgraphperfstatname":"Cook Time",\n	"perfstatname":"Time",\n	"showparmdialogmax":"1",\n	"taskgraphcollapsemode":"Off",\n	"workitemcolorattribute":"",\n	"gridmode":"1",\n	"workitemattrtocollapseby":"",\n	"showtimedep":"0",\n	"overviewbounds":"0.000000 0.000000 183.471668 213.188910",\n	"overviewmode":"2",\n	"showmenu":"1",\n	"showperfstats":"1",\n	"grouplistsplit":"0.75",\n	"showgrouplist":"0",\n	"palettemode":"0",\n	"useworkitemcolorattribute":"1",\n	"showtasksmenu":"1",\n	"backgroundimageediting":"0",\n	"backgroundimagebrightness":"1.0",\n	"gridystep":"1.5",\n	"showtree":"0",\n	"palettesize":"150 150",\n	"treesplit":"0.25",\n	"typesidebarsplit":"0.25",\n	"showtypesidebar":"0",\n	"taskgraphsortcriteria":"Automatic",\n	"showparmdialog":"0",\n	"gridxstep":"3.0"\n}\n' panetab7
+networkeditor -p '{\n	"obj:listmode":"0",\n	"sop:listmode":"0",\n	"palettecolors":"",\n	"showspareinputdep":"1",\n	"showchilddep":"1",\n	"showdep":"0",\n	"taskgraphsortdirection":"0",\n	"showtaskgraphperf":"0",\n	"taskgraphperfstatname":"Cook Time",\n	"perfstatname":"Time",\n	"showparmdialogmax":"1",\n	"taskgraphcollapsemode":"Off",\n	"workitemcolorattribute":"",\n	"gridmode":"1",\n	"workitemattrtocollapseby":"",\n	"showtimedep":"0",\n	"overviewbounds":"0.000000 0.000000 173.245325 201.306188",\n	"overviewmode":"2",\n	"showmenu":"1",\n	"showperfstats":"1",\n	"grouplistsplit":"0.75",\n	"showgrouplist":"0",\n	"palettemode":"0",\n	"useworkitemcolorattribute":"1",\n	"showtasksmenu":"1",\n	"backgroundimageediting":"0",\n	"backgroundimagebrightness":"1.0",\n	"gridystep":"1.5",\n	"showtree":"0",\n	"palettesize":"150 150",\n	"treesplit":"0.25",\n	"typesidebarsplit":"0.25",\n	"showtypesidebar":"0",\n	"taskgraphsortcriteria":"Automatic",\n	"showparmdialog":"0",\n	"gridxstep":"3.0"\n}\n' panetab7
 netcolumns -c display,xray,select,origin,capture,bone -n OBJ panetab7
 netcolumns -c display,render,template,selectabletemplate,highlight,unload,bypass,lock -n SOP panetab7
 netcolumns -c delscript,comment -n CHOPNET panetab7
@@ -64,6 +64,6 @@ netcolumns -c delscript,comment -n DIR panetab7
 netcolumns -c delscript,comment -n DATA panetab7
 treecontrol -a 0 -h 0 -i 1 -f 0 -O 0 -S 0 -D 0 -H 0 -V 0 -C 0 -I 0 -R 0 panetab8
 parmeditor -T 0.25 -w 0 panetab5
-geospreadsheet -c 0 -l horizontal -s 0.5 -m none -f 0 panetab11
-scenegraphtree -S 0.25 -m 2 -p "/collections /lights" -c  -i  -o  -x 1 -s 1 -M 0 -C primtype,descendants,kind,populated,loaded,activation,visibility,solo,selectability  panetab11
+geospreadsheet -c 0 -l horizontal -s 0.5 -m none -f 0 panetab4
+scenegraphtree -S 0.25 -m 2 -p "/collections /lights" -c  -i  -o  -x 1 -s 1 -M 0 -C primtype,descendants,kind,populated,loaded,activation,visibility,solo,selectability  panetab4
 performance -c on -d on -f on -g off -j on -k on -m off -n on -o on -t off -v on -p on -y on -u on -e off -r absolute -R seconds -w tree panetab12

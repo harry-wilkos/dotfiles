@@ -1,4 +1,4 @@
-[shell]
+[terminal.shell]
 program = "/usr/bin/fish"
 args = ["--login"]
 
@@ -77,3 +77,5 @@ blue    = '#7da6ff'
 magenta = '#bb9af7'
 cyan    = '#0db9d7'
 white   = '#acb0d0'
+
+[terminal]

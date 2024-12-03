@@ -198,7 +198,8 @@ vim.cmd("set shiftwidth=5")
 -- Colorscheme and Transparency
 lvim.colorscheme = "tokyonight-storm"
 lvim.transparent_window = true
-
+vim.o.number = true
+vim.o.relativenumber = true
 -- Leader key settings
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -226,7 +227,15 @@ vim.keymap.set('n', '<C-S-z>', '<C-r>', { noremap = true, silent = true })      
 vim.keymap.set('n', '<C-a>', 'ggVG', { noremap = true, silent = true })               -- Select all
 vim.keymap.set('i', '<C-a>', '<Esc>ggVG<CR>a', { noremap = true, silent = true })     -- Select all in insert mode
 vim.api.nvim_set_keymap('v', '<C-a>', '<Esc>ggVG', { noremap = true, silent = true }) -- Select all in visual mode
-lvim.keys.normal_mode["/"]  = ":noh<CR>:/"
+lvim.keys.normal_mode["/"] = ":noh<CR>:/"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 4
+vim.opt.foldcolumn = "0"
+vim.opt.foldtext = ""
+vim.opt.foldnestmax = 4
 -- Nvim Tree toggle
 vim.keymap.set("n", "<C-p>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
@@ -297,16 +306,28 @@ vim.keymap.set('n', '<A-Right>', '<C-w>l', { noremap = true, silent = true }) --
 vim.keymap.set('n', '<C-Esc>', ':WakaTimeToday<CR>', { noremap = true, silent = true })
 
 -- Manual LSP
-if not vim.env.PYTHONPATH then
-     vim.env.PYTHONPATH = '/opt/hfs20.0.653/houdini/python3.10libs/'
-else
-     vim.env.PYTHONPATH = vim.env.PYTHONPATH .. ':/opt/hfs20.0.653/houdini/python3.10libs/'
-end
+-- if not vim.env.PYTHONPATH then
+--      vim.env.PYTHONPATH = '/opt/hfs20.0.653/houdini/python3.10libs/'
+-- else
+--      vim.env.PYTHONPATH = vim.env.PYTHONPATH .. ':/opt/hfs20.0.653/houdini/python3.10libs/'
+-- end
+
+-- Fold
+vim.keymap.set('n', '<C-g>', function()
+    local fold_status = vim.fn.foldclosed(".")
+    if fold_status == -1 then
+        vim.cmd("foldclose")
+    else
+        vim.cmd("foldopen")
+    end
+end, { noremap = true, silent = true })
+
 
 
 local lspconfig = require("lspconfig")
 local formatters = require("lvim.lsp.null-ls.formatters")
 local linters = require("lvim.lsp.null-ls.linters")
+
 
 vim.api.nvim_create_autocmd("FileType", {
      pattern = "fish",
@@ -332,4 +353,5 @@ formatters.setup({
 linters.setup({
      { command = "fish",       args = { "-n" },           filetypes = { "fish" } },
      { command = "shellcheck", filetypes = { "dosbatch" } },
+     -- { command = "flake8",     filetypes = { "python" } }
 })

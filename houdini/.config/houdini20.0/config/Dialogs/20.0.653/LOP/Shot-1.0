@@ -1,16 +1,234 @@
-// Magic: 3c21d345
+// Magic: 7a61c499
 // Automatically generated PSI dialog (PSI version 20.0.653)
-// Thu Oct 24 18:57:05 2024
+// Tue Nov 26 23:41:29 2024
 
 
 f_tmp = FLOAT_FIELD;	// dialog.top.ui
 
-# warning cpp warning: "GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
-# warning cpp warning: "GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
-# warning cpp warning: "GenV3/subdialog.top.ui":7 Macro "DO_JUSTIFY" redefined.  Using later definition
+load_shot.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    load_shot.label = PARM_LABEL_SIMPLE("Load Shot", "load_shot") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    load_shot.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+frame_range.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   frame_range.label = PARM_LABEL("Frame Range", "frame_range") WIDTH(1.5);
+   PARM(integer, 2, "frame_range", none, none, "X,Y")
+	RANGE(1001,1101) LOCK_RANGE_MIN LABELREF(frame_range.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+sepparm2.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.064700) }
+}
+
+cam.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ cam.label = PARM_LABEL("Camera", "cam") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "cam") LABELREF(cam.label)
+	VALUE(cam.val) HSTRETCH;
+
+    cam.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(cam.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+sepparm3.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.064700) }
+}
+
+plate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ plate.label = PARM_LABEL("Plate", "plate") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "plate") LABELREF(plate.label)
+	VALUE(plate.val) HSTRETCH;
+
+    plate.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(plate.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+sepparm4.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+publish.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+publish.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("publish", "Publish Shot")
+	push VALUE(publish.val);
+
+    {  }
+}
+
+reload_shot.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("reload_shot", "Reload Shot")
+	push VALUE(reload_shot.val);
+
+    {  }
+}
+
+delete.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("delete", "Delete Shot")
+	push VALUE(delete.val);
+
+    {  }
+}
+}	// Template join.bot
+
+
+sepparm5.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+show_backend.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    PARM_BUTTON("show_backend", "") toggle VALUE(show_backend.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+cam_path.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    cam_path.label = PARM_LABEL("Alembric Camera Path", "cam_path") WIDTH(1.5);
+    PARM_FIELD(string, "cam_path") VALUE(cam_path.val) 
+	LABELREF(cam_path.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+back_plate.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ back_plate.label = PARM_LABEL("Back Plate", "back_plate") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "back_plate") LABELREF(back_plate.label)
+	VALUE(back_plate.val) HSTRETCH;
+
+    back_plate.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(back_plate.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+backend.gad = 
+
+{
+    VALUE(backend.gad.val) LAYOUT(vertical) HSTRETCH SPACING(0.02)
+	    cam_path.gad;		
+	    back_plate.gad;		
+} 
+
 dialog_norm.gad = 
 {
     LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    load_shot.gad; 
+    sepparm.gad; 
+    frame_range.gad; 
+    sepparm2.gad; 
+    cam.gad; 
+    sepparm3.gad; 
+    plate.gad; 
+    sepparm4.gad; 
+    publish.row.join; 
+    sepparm5.gad; 
+    show_backend.gad; 
+    backend.gad; 
 } 
 // dialog.bot.ui
 
