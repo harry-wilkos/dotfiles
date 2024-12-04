@@ -58,7 +58,7 @@ set -x PYTHONPATH "/opt/hfs20.0.653/houdini/python3.10libs/:/opt/hfs20.0.653/pyt
 
 # Set Houdini user preferences
 set -x HOUDINI_USER_PREF_DIR ~/.config/houdini20.0
-set -x LD_PRELOAD /opt/hfs20.0.653/dsolib/libjemalloc.so
+# set -x LD_PRELOAD /opt/hfs20.0.653/dsolib/libjemalloc.so
 set -x QTWEBENGINE_CHROMIUM_FLAGS --no-sandbox
 
 # Set Nuke user preferences
